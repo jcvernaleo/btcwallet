@@ -306,11 +306,21 @@ message BlockInfoResponse {
 }
 
 message ValidateAddressRequest {
-    bytes block_hash = 1;
-    int32 block_height = 2;
+    string address = 1;
 }
 message ValidateAddressResponse {
-    bytes block_hash = 1;
+    bool is_valid = 1;
+    string address = 2;
+    bool is_mine = 3;
+    bool is_watchonly = 4;
+    bool is_script = 5;
+    string pub_key_addr = 6;
+    stirng pub_key = 7;
+    bool is_compressed = 8;
+    string account = 9;
+}
+
+bytes block_hash = 1;
     int32 block_height = 2;
     int32 confirmations = 3;
     int64 timestamp = 4;
