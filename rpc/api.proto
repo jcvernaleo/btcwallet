@@ -27,6 +27,7 @@ service WalletService {
 	rpc TicketPrice (TicketPriceRequest) returns (TicketPriceResponse);
 	rpc StakeInfo (StakeInfoRequest) returns (StakeInfoResponse);
 	rpc BlockInfo (BlockInfoRequest) returns (BlockInfoResponse);
+	rpc ValidateAddress (ValidateAddressRequest) returns (ValidateAddressResponse);
 
 	// Notifications
 	rpc TransactionNotifications (TransactionNotificationsRequest) returns (stream TransactionNotificationsResponse);
@@ -296,6 +297,19 @@ message BlockInfoRequest {
     int32 block_height = 2;
 }
 message BlockInfoResponse {
+    bytes block_hash = 1;
+    int32 block_height = 2;
+    int32 confirmations = 3;
+    int64 timestamp = 4;
+    bytes block_header = 5;
+    bool stake_invalidated = 6;
+}
+
+message ValidateAddressRequest {
+    bytes block_hash = 1;
+    int32 block_height = 2;
+}
+message ValidateAddressResponse {
     bytes block_hash = 1;
     int32 block_height = 2;
     int32 confirmations = 3;
