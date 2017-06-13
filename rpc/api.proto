@@ -315,7 +315,7 @@ message ValidateAddressResponse {
     bool is_watchonly = 4;
     bool is_script = 5;
     string pub_key_addr = 6;
-    stirng pub_key = 7;
+    string pub_key = 7;
     bool is_compressed = 8;
     string account = 9;
 }
